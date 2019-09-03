@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "RetailPosSystem",
+    "packageName": "com.prodomotic.possystem",
+    "packageFolder": "com/prodomotic/possystem",
+    "serverPort": 9595,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": "true",
+    "messageBroker": false,
+    "buildTool": "gradle",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "enableTranslation": false,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "6.2.0",
+    "jwtSecretKey": "MjgxZGRmZGE3ZWVlMTJmODMxNWVhNmM0N2Q5Nzc1MTU4OWY1MzYzYzkxOGFlNWU4MzQxNWRiZTA5MTk2ZjA0ZWQzZGVhN2RjOWMyYjVmZDk2NDFjNjQ4MGZjNzAzMDhkYmM0M2MzNWNiM2M5NzM4YjUxZjU2NjBkYWU5YzUwYTQ=",
+    "clientTheme": "none",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "blueprints": []
+  },
+  "git-provider": "GitHub",
+  "git-company": "charles770",
+  "repository-name": "retail-pos-system-entities"
+}
