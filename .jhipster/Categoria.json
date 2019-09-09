@@ -1,0 +1,44 @@
+{
+    "name": "Categoria",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "abreviatura",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "foto",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "colorFondo",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "categoria",
+            "otherEntityName": "categoria",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "categoria",
+            "otherEntityRelationshipName": "categoria",
+            "relationshipName": "categoria"
+        }
+    ],
+    "changelogDate": "20190909134807",
+    "entityTableName": "categoria",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

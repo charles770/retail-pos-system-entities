@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-producto-heading">Create or edit a Producto</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codigo">Codigo</label>
+                    <input type="text" class="form-control" name="codigo" id="field_codigo"
+                           formControlName="codigo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_foto">Foto</label>
+                    <input type="text" class="form-control" name="foto" id="field_foto"
+                           formControlName="foto"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cantidad">Cantidad</label>
+                    <input type="number" class="form-control" name="cantidad" id="field_cantidad"
+                           formControlName="cantidad"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_precioCompra">Precio Compra</label>
+                    <input type="number" class="form-control" name="precioCompra" id="field_precioCompra"
+                           formControlName="precioCompra"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_precioVenta">Precio Venta</label>
+                    <input type="number" class="form-control" name="precioVenta" id="field_precioVenta"
+                           formControlName="precioVenta"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_minimasUnidades">Minimas Unidades</label>
+                    <input type="number" class="form-control" name="minimasUnidades" id="field_minimasUnidades"
+                           formControlName="minimasUnidades"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_unidadesPedido">Unidades Pedido</label>
+                    <input type="number" class="form-control" name="unidadesPedido" id="field_unidadesPedido"
+                           formControlName="unidadesPedido"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codum">Codum</label>
+                    <select class="form-control" id="field_codum" name="codum" formControlName="codum">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="unidadMedidaOption.id === editForm.get('codum').value?.id ? editForm.get('codum').value : unidadMedidaOption" *ngFor="let unidadMedidaOption of unidadmedidas; trackBy: trackUnidadMedidaById">{{unidadMedidaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_proveedor">Proveedor</label>
+                    <select class="form-control" id="field_proveedor" name="proveedor" formControlName="proveedor">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="proveedorOption.id === editForm.get('proveedor').value?.id ? editForm.get('proveedor').value : proveedorOption" *ngFor="let proveedorOption of proveedors; trackBy: trackProveedorById">{{proveedorOption.identificacion}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codcategoria">Codcategoria</label>
+                    <select class="form-control" id="field_codcategoria" name="codcategoria" formControlName="codcategoria">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categoriaOption.id === editForm.get('codcategoria').value?.id ? editForm.get('codcategoria').value : categoriaOption" *ngFor="let categoriaOption of categorias; trackBy: trackCategoriaById">{{categoriaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_impuestos">Impuesto</label>
+                    <select class="form-control" id="field_impuestos" multiple name="impuestos" formControlName="impuestos">
+                        <option [ngValue]="getSelected(editForm.get('impuestos').value, impuestoOption)" *ngFor="let impuestoOption of impuestos; trackBy: trackImpuestoById">{{impuestoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

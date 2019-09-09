@@ -1,0 +1,23 @@
+{
+    "name": "UnidadMedida",
+    "fields": [
+        {
+            "fieldName": "nombreUnidadMedida",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "abreviatura",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190909134805",
+    "entityTableName": "unidad_medida",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,38 @@
+{
+    "name": "Cliente",
+    "fields": [
+        {
+            "fieldName": "nombreCliente",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "identificacion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "edad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fechaIngreso",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pedido",
+            "otherEntityRelationshipName": "cliente",
+            "relationshipName": "pedido"
+        }
+    ],
+    "changelogDate": "20190909134809",
+    "entityTableName": "cliente",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

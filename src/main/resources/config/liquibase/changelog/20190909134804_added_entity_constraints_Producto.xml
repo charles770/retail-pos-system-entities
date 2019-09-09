@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Producto.
+    -->
+    <changeSet id="20190909134804-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="codum_id"
+                                 baseTableName="producto"
+                                 constraintName="fk_producto_codum_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="unidad_medida"/>
+
+        <addForeignKeyConstraint baseColumnNames="proveedor_id"
+                                 baseTableName="producto"
+                                 constraintName="fk_producto_proveedor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="proveedor"/>
+
+        <addForeignKeyConstraint baseColumnNames="codcategoria_id"
+                                 baseTableName="producto"
+                                 constraintName="fk_producto_codcategoria_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="categoria"/>
+
+        <addForeignKeyConstraint baseColumnNames="producto_id"
+                                 baseTableName="producto_impuesto"
+                                 constraintName="fk_producto_impuesto_producto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="producto"/>
+
+        <addForeignKeyConstraint baseColumnNames="impuesto_id"
+                                 baseTableName="producto_impuesto"
+                                 constraintName="fk_producto_impuesto_impuesto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="impuesto"/>
+        
+    </changeSet>
+</databaseChangeLog>

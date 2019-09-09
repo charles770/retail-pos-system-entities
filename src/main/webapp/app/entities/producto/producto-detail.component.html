@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="producto">
+            <h2><span>Producto</span> {{producto.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Descripcion</span></dt>
+                <dd>
+                    <span>{{producto.descripcion}}</span>
+                </dd>
+                <dt><span>Codigo</span></dt>
+                <dd>
+                    <span>{{producto.codigo}}</span>
+                </dd>
+                <dt><span>Foto</span></dt>
+                <dd>
+                    <span>{{producto.foto}}</span>
+                </dd>
+                <dt><span>Cantidad</span></dt>
+                <dd>
+                    <span>{{producto.cantidad}}</span>
+                </dd>
+                <dt><span>Precio Compra</span></dt>
+                <dd>
+                    <span>{{producto.precioCompra}}</span>
+                </dd>
+                <dt><span>Precio Venta</span></dt>
+                <dd>
+                    <span>{{producto.precioVenta}}</span>
+                </dd>
+                <dt><span>Minimas Unidades</span></dt>
+                <dd>
+                    <span>{{producto.minimasUnidades}}</span>
+                </dd>
+                <dt><span>Unidades Pedido</span></dt>
+                <dd>
+                    <span>{{producto.unidadesPedido}}</span>
+                </dd>
+                <dt><span>Codum</span></dt>
+                <dd>
+                    <div *ngIf="producto.codum">
+                        <a [routerLink]="['/unidad-medida', producto.codum?.id, 'view']">{{producto.codum?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Proveedor</span></dt>
+                <dd>
+                    <div *ngIf="producto.proveedor">
+                        <a [routerLink]="['/proveedor', producto.proveedor?.id, 'view']">{{producto.proveedor?.identificacion}}</a>
+                    </div>
+                </dd>
+                <dt><span>Codcategoria</span></dt>
+                <dd>
+                    <div *ngIf="producto.codcategoria">
+                        <a [routerLink]="['/categoria', producto.codcategoria?.id, 'view']">{{producto.codcategoria?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Impuesto</span></dt>
+                <dd>
+                    <span *ngFor="let impuesto of producto.impuestos; let last = last">
+                        <a [routerLink]="['/impuesto', impuesto?.id, 'view' ]">{{impuesto.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/producto', producto.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

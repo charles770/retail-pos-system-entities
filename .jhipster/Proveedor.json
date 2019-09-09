@@ -1,0 +1,35 @@
+{
+    "name": "Proveedor",
+    "fields": [
+        {
+            "fieldName": "nombreProveedor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "identificacion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombreVendedor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "direccion",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190909134806",
+    "entityTableName": "proveedor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

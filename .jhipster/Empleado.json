@@ -1,0 +1,45 @@
+{
+    "name": "Empleado",
+    "fields": [
+        {
+            "fieldName": "nombreEmpleado",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "usuario",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contrasena",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pedido",
+            "otherEntityRelationshipName": "empleado",
+            "relationshipName": "pedido"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "perfil",
+            "otherEntityRelationshipName": "empleado",
+            "relationshipName": "perfil",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190909134810",
+    "entityTableName": "empleado",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

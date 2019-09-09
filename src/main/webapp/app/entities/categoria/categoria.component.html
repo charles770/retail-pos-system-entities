@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span>Categorias</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-categoria" [routerLink]="['/categoria/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Categoria
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="categorias?.length === 0">
+        <span>No categorias found</span>
+    </div>
+    <div class="table-responsive" *ngIf="categorias?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Nombre</span></th>
+            <th><span>Abreviatura</span></th>
+            <th><span>Foto</span></th>
+            <th><span>Color Fondo</span></th>
+            <th><span>Categoria</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let categoria of categorias ;trackBy: trackId">
+                <td><a [routerLink]="['/categoria', categoria.id, 'view' ]">{{categoria.id}}</a></td>
+                <td>{{categoria.nombre}}</td>
+                <td>{{categoria.abreviatura}}</td>
+                <td>{{categoria.foto}}</td>
+                <td>{{categoria.colorFondo}}</td>
+                <td>
+                    <div *ngIf="categoria.categoria">
+                        <a [routerLink]="['/categoria', categoria.categoria?.id, 'view' ]" >{{categoria.categoria?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/categoria', categoria.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/categoria', categoria.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/categoria', { outlets: { popup: categoria.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

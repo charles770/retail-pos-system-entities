@@ -1,0 +1,23 @@
+{
+    "name": "Permiso",
+    "fields": [
+        {
+            "fieldName": "nombrePermiso",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "activo",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190909134812",
+    "entityTableName": "permiso",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

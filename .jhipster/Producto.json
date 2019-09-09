@@ -1,0 +1,77 @@
+{
+    "name": "Producto",
+    "fields": [
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codigo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "foto",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cantidad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "precioCompra",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "precioVenta",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "minimasUnidades",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "unidadesPedido",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "unidadMedida",
+            "otherEntityRelationshipName": "producto",
+            "relationshipName": "codum",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "proveedor",
+            "otherEntityRelationshipName": "producto",
+            "relationshipName": "proveedor",
+            "otherEntityField": "identificacion"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categoria",
+            "otherEntityRelationshipName": "producto",
+            "relationshipName": "codcategoria",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "impuesto",
+            "otherEntityRelationshipName": "producto",
+            "relationshipName": "impuesto",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190909134804",
+    "entityTableName": "producto",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
