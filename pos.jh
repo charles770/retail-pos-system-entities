@@ -1,0 +1,109 @@
+entity Producto {
+	 descripcion String,
+     codigo String,
+     foto String,
+     cantidad Integer,    
+     precioCompra Double, 
+     precioVenta Double,
+     minimasUnidades Integer,
+     unidadesPedido Integer   
+}
+
+entity UnidadMedida {
+	nombreUnidadMedida String,
+    abreviatura String
+}
+
+entity Proveedor {
+	nombreProveedor String,
+	identificacion String,
+	nombreVendedor String,
+	telefono String,
+    direccion String
+}
+
+entity Categoria {
+	nombre String,
+    abreviatura String,
+    foto String,
+    colorFondo Integer
+}
+
+
+entity Impuesto {
+	nombre String,
+	description String,
+    porcentaje Double
+}
+
+
+entity Cliente {
+	nombreCliente String,
+	identificacion String,
+    edad Integer,
+    fechaIngreso LocalDate
+}
+
+entity Empleado {
+	nombreEmpleado String,	
+	usuario String,
+	contrasena String,
+    telefono String
+}
+
+entity Perfil {
+	nombre String,	
+	descripcion String	
+}
+
+entity Permiso {
+	nombrePermiso String,
+	activo Boolean	
+}
+
+entity Pedido {
+	codigo String,
+	subtotal Double,
+    descuento Double,
+    impuestos Double,
+    total Double,
+    fecha LocalDate
+}
+
+
+
+relationship ManyToOne {
+	Producto{codum} to UnidadMedida,
+    Producto{proveedor(identificacion)} to Proveedor,
+    Producto{codcategoria} to Categoria
+    Empleado{perfil} to Perfil 
+}
+
+
+relationship ManyToMany {
+	Producto{impuesto} to Impuesto,
+    Perfil{permiso} to Permiso
+    Pedido{producto} to Producto
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {	
+    Categoria{categoria} to Categoria
+	Cliente{pedido} to Pedido
+    Empleado{pedido} to Pedido
+}
+
+
+
+
+// Set pagination options
+
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
